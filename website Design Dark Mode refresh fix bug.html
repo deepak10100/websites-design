@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/691fa1f4eb.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        :root{
+            --background-color:rgb(235, 233, 233);
+            --text-color:#606163;
+            --header-color:black;
+        }
+        .hero{
+            height: 100vh;
+            width:100vw;
+            background-color: var(--background-color);
+            position: relative;
+        }
+        nav{
+width: 85%;
+margin: auto;
+padding: 20px 0;
+display: flex;
+align-items: center;
+justify-content: space-between;
+        }
+        .logo{
+            width: 100px;
+            cursor: pointer;
+
+        }
+        nav ul li{
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 800;
+        }
+        nav ul li a:hover{
+            color: rgba(20, 201, 20, 0.87);
+            font-weight: 800;
+        }
+        .info{
+            margin-left: 8%;
+            margin-top: 15%;
+        }
+        .info h1{
+            font-size: 70px;
+            color: var(--header-color);
+            margin-bottom: 20px;
+        }
+        span{
+            color: rgba(10, 177, 46, 0.897);
+        }
+        .info p{
+            color: var(--text-color);
+            line-height: 22px;
+        }
+        .info a{
+            background-color: green;
+            padding: 10px 18px;
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            margin: 30px 0;
+            border-radius: 7px;
+        }
+        .imgbox{
+            width: 45%;
+            height: 80%;
+            position: absolute;
+            bottom: 0;
+            right: 100px;
+        }
+        .imgbox img{
+            height: 100%;
+            position: absolute;
+            left: 63%;
+            bottom: 0;
+            transform: translateX(-50%);
+            transition: 1s ease;
+           
+        }
+        .imgbox .backimage{
+            height: 100%;
+            width: 95%;
+        }
+        .imgbox:hover .backimage{
+            bottom: 30px;
+            transition: bottom 1s;
+        }
+        .imgbox:hover .mainimg{
+            left: 54%;
+            transition: left 1s;
+        }
+        .sociallink{
+            margin-left: 8%;
+           position: absolute;
+           bottom: 1%;
+        }
+        .sociallink a{
+            font-size: 30px;
+            color: var(--text-color);
+            margin-right: 20px;
+        }
+        .sociallink a:hover{
+            color: green;
+        }
+        #icon{
+            width: 23px;
+cursor: pointer;
+        }
+        nav ul {
+            flex: 1;
+            text-align: right;
+        }
+        .darkmode{
+            --background-color:black;
+            --text-color:blue;
+            --header-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+<nav>
+    <img src="./logo.png" alt="" srcset="" class="logo">
+    <ul>
+        <li><a href="http://">HOME</a></li>
+        <li><a href="http://">ABOUT</a></li>
+        <li><a href="http://">SERVICE</a></li>
+        <li><a href="http://">CONTACT US</a></li>
+    </ul>
+    <img src="./moon.svg" id="icon" alt="">
+</nav>
+<div class="info">
+    <h1>I'm <span>Deepak </span> Saini</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur cumque aut labore <br> eum quos atque voluptate tempore explicabo, laudantium neque?</p>
+    <a href="http://">Download</a>
+</div>
+<div class="imgbox">
+    <img src="./bg2.png" alt="" srcset="" class="backimage">
+    <img src="./group.png" alt="" srcset="" class="mainimg">
+</div>
+<div class="sociallink">
+    <a href=""><i class="fab fa-facebook"></i></a>
+    <a href=""><i class="fab fa-instagram"></i></a>
+    <a href=""><i class="fab fa-twitter"></i></a>
+</div>
+    </div>
+    <script>
+         let icon = document.getElementById('icon')
+         let localdata = localStorage.getItem('theme')
+         if (localStorage.getItem('theme')==null) {
+             localStorage.setItem('theme','light')
+         }
+         if (localdata=='dark') {
+             icon.src='sun.svg'
+             document.body.classList.add('darkmode')
+         } else if (localdata=='light') {
+             icon.src='moon.svg'
+             document.body.classList.remove('darkmode')
+         }
+       
+        icon.onclick=function(){
+            document.body.classList.toggle('darkmode')
+            if (document.body.classList.contains('darkmode')) {
+                icon.src='sun.svg'
+               localStorage.setItem('theme',"dark")
+            } else {
+                icon.src='moon.svg'
+             localStorage.setItem('theme','light')
+            }
+        }
+    </script>
+</body>
+</html>
