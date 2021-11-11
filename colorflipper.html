@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+        }
+        h1{
+            font-size: 3rem;
+        
+        }    
+        p{
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+        #btn{
+            margin-top: 10px;
+            margin-left: 50px;
+            padding: 7px 30px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        @media screen and (max-width:360px) {
+       
+            h1{
+                margin-left: -30%;
+            }
+            p{
+                margin-left: -20%;
+            }
+            #btn{
+                margin-left: -10%;
+            }
+        }
+        @media screen and(max-width:400px) {
+            h1{
+                margin-left: -40%;
+            }
+            p{
+                margin-left: -60%;
+            }
+            #btn{
+                margin-left: -80%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Flipper</h1>
+        <p>Color Code: <span id="colortext">White</span></p>
+        <button id="btn">click me</button>
+    </div>
+
+        <script>
+
+            let btn = document.getElementById('btn') //btn ko target krana
+            let colortext = document.getElementById('colortext') //span tag ko target karna
+            // let hexcode = [0,1,2,3,4,5,6,'a','b','c','d','e','f'] // hexcode bnana
+            let hexcode = ['red','blue','skyblue','green','pink'] // hexcode bnana
+            function getcolor() {
+                return Math.floor(Math.random()*hexcode.length) // random funcatioon bnana
+            }
+
+            btn.addEventListener('click',()=>{
+                // let hex ='#'
+                for (let i = 0; i < 6; i++) {
+                //  hex= hex+ hexcode[getcolor()] 
+                var hex=  hexcode[getcolor()] 
+                    
+                }
+                document.body.style.backgroundColor=hex
+                colortext.innerText=hex
+            })
+
+        </script>
+</body>
+</html>
